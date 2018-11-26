@@ -11,7 +11,7 @@ FrontView.prototype.bindEvents = function () {
 
 FrontView.prototype.submitNumber = function (event) {
   event.preventDefault();
-  const number = event.target.number.value;
+  const number = event.target.number.valueAsNumber;
   PubSub.publish("FrontView:NumberSubmitted", number);
 };
 

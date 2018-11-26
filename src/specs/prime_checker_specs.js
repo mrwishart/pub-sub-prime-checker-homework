@@ -98,21 +98,21 @@ describe('Prime', function () {
 
   describe('isNewPrime' , () => {
     it ('should find primes', () => {
-      const actual = primechecker.isNewPrime(13);
+      const actual = primechecker.isNextHighestPrime(13);
       const expected = true;
       assert.deepStrictEqual(actual, expected);
     });
 
     it ('should find non-primes', () => {
-      const actual = primechecker.isNewPrime(14);
+      const actual = primechecker.isNextHighestPrime(14);
       const expected = false;
       assert.deepStrictEqual(actual, expected);
     });
   })
 
-  describe('checkAgainstArray', () => {
+  describe('checkNumberInivisibleOverArray', () => {
     it ('should find number', () => {
-      const actual = primechecker.checkNumberDividedByArray(17);
+      const actual = primechecker.checkNumberIndivisibleOverArray(17);
       const expected = true;
       assert.deepStrictEqual(actual, expected);
     });

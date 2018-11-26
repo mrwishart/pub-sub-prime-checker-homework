@@ -15,22 +15,17 @@ PrimeChecker.prototype.bindEvents = function () {
   });
 };
 
-// PrimeChecker.prototype.handleRequest = function (event) {
-//
-// };
-
 PrimeChecker.prototype.numberIsPrime = function (number) {
 
-  if (number === 1) {return false;}
-  if (number <= this.rangeChecked) {return this.isInArray(number);}
-
-  if (!this.checkNumberDividedByArray(number)) {return false;}
+  if (number <= 1) {return false;}
+  if (number <= this.rangeChecked) {return this.primeArray.includes(number);}
+  if (!this.checkNumberIndivisibleOverArray(number)) {return false;}
 
   let lowerLimit = this.rangeChecked+1;
-  let upperLimit = Math.round(Math.sqrt(number));
+  let upperLimit = Math.sqrt(number);
 
   for (let i = lowerLimit; i <= upperLimit; i++) {
-    if (this.isNewPrime(i)) {this.updateArray(i);}
+    if (this.isNextHighestPrime(i)) {this.updateArray(i);}
     if (number % i === 0) {return false;}
   }
 
@@ -43,14 +38,14 @@ PrimeChecker.prototype.updateArray = function (number) {
 };
 
 PrimeChecker.prototype.isInArray = function (number) {
-  return this.primeArray.includes(number)
+  return this.primeArray.includes(number);
 };
 
-PrimeChecker.prototype.checkNumberDividedByArray = function (number) {
-  return this.primeArray.every((element) => {return number % element !== 0;});
+PrimeChecker.prototype.checkNumberIndivisibleOverArray = function (number) {
+  return this.primeArray.every((element) => {return number % element !== 0});
 };
 
-PrimeChecker.prototype.isNewPrime = function (number) {
+PrimeChecker.prototype.isNextHighestPrime = function (number) {
   for (let i = 2; i <= Math.sqrt(number); i++) {
     if (number % i === 0) {return false;}
   }

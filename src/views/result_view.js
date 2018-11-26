@@ -11,9 +11,9 @@ ResultView.prototype.bindEvents = function () {
 ResultView.prototype.displayResult = function (event) {
   const rv = new ResultView();
 
-  const result = (event.detail ? rv.trueString : rv.falseString);
+  const result = (event.detail ? rv.trueString() : rv.falseString());
 
-  const display = document.querySelector('#result')
+  const display = document.querySelector('#result');
   display.textContent = result;
 };
 

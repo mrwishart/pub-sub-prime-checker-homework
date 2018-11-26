@@ -55,6 +55,12 @@ describe('Prime', function () {
     assert.strictEqual(actual, expected);
   });
 
+  it ('should recognise 49 as a non-prime', () => {
+    const actual = primechecker.numberIsPrime(49);
+    const expected = false;
+    assert.strictEqual(actual, expected);
+  });
+
   it ('should recognise a square number as not prime', () => {
     const actual = primechecker.numberIsPrime(169);
     const expected = false;
@@ -100,6 +106,14 @@ describe('Prime', function () {
     it ('should find non-primes', () => {
       const actual = primechecker.isNewPrime(14);
       const expected = false;
+      assert.deepStrictEqual(actual, expected);
+    });
+  })
+
+  describe('checkAgainstArray', () => {
+    it ('should find number', () => {
+      const actual = primechecker.checkNumberDividedByArray(17);
+      const expected = true;
       assert.deepStrictEqual(actual, expected);
     });
   })
